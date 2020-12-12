@@ -1,0 +1,246 @@
+<div class="justify-content-center">
+    <h2 class="text-center">Submit Appointment Request</h2>
+    <hr class="w-50" style="background-color: gray;">
+    <strong class=" text-success ml-4">Fields marked * are mandatory to fill.</strong>
+    <div class="m-3">
+        <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>First Name*</label>
+                        <input type="text" class="form-control" formControlName="firstname"
+                            placeholder="Enter First Name" autofocus>
+                        <strong class="form-text text muted text-danger"
+                            *ngIf="(appointmentForm.controls.firstname.touched || anyError) && appointmentForm.controls.firstname.errors?.required">
+                            Please Enter the First Name
+                        </strong>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" formControlName="lastname"
+                            placeholder="Enter the Last Name">
+
+                    </div>
+                </div>
+            </div>
+            <fieldset>
+                <legend>Address*</legend>
+                <div class="form-group">
+                    <label>Street Address</label>
+                    <input type="text" formControlName="address" class="form-control" placeholder="Address">
+                    <strong class="form-text text muted text-danger"
+                        *ngIf="(appointmentForm.controls.address.touched || anyError) && appointmentForm.controls.address.errors?.required">
+                        Please Enter the Address
+                    </strong>
+                </div>
+                
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" formControlName="city" class="form-control" placeholder="City">
+                            <strong class="form-text text muted text-danger"
+                                *ngIf="(appointmentForm.controls.city.touched || anyError) && appointmentForm.controls.city.errors?.required">
+                                Please Enter the City
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <input type="text" formControlName="state" class="form-control" placeholder="state">
+                            <strong class="form-text text muted text-danger"
+                                *ngIf="(appointmentForm.controls.state.touched || anyError) && appointmentForm.controls.state.errors?.required">
+                                Please Enter the state
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Country*</label>
+                            <input type="text" formControlName="country" class="form-control" placeholder="Country">
+                            <strong class="form-text text muted text-danger"
+                                *ngIf="(appointmentForm.controls.country.touched || anyError) && appointmentForm.controls.country.errors?.required">
+                                Please Enter the First Name
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Pin Code*</label>
+                            <input type="number" formControlName="pincode" class="form-control" placeholder="Pincode">
+                            <strong class="form-text text muted text-danger"
+                                *ngIf="(appointmentForm.controls.pincode.touched || anyError) && appointmentForm.controls.pincode.errors?.required">
+                                Please Enter the Pincode
+                            </strong>
+                            <strong class="form-text text muted text-danger"
+                                *ngIf="(appointmentForm.controls.pincode.touched || anyError) && appointmentForm.controls.pincode.errors?.min">
+                                Pincode Must be minumun 6 digits
+                            </strong>
+                            <strong class="form-text text muted text-danger"
+                                *ngIf="(appointmentForm.controls.pincode.touched || anyError) && appointmentForm.controls.pincode.errors?.max">
+                                Pincode Must be minumun 6 digits
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Email*</label>
+                        <input type="email" formControlName="email" class="form-control"
+                            placeholder="Enter Email Address">
+                        <strong id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</strong>
+                        <strong class="form-text text muted text-danger"
+                            *ngIf="(appointmentForm.controls.email.touched || anyError) && appointmentForm.controls.email.errors?.required">
+                            Please Enter Email.
+                        </strong>
+                        <strong class="form-text text muted text-danger"
+                            *ngIf="(appointmentForm.controls.email.touched || anyError) && appointmentForm.controls.email.errors?.email">
+                            Please Enter the correct email format.
+                        </strong>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Age*</label>
+                        <input type="number" formControlName="age" class="form-control" placeholder="Age">
+                        <strong class="form-text text muted text-danger"
+                            *ngIf="(appointmentForm.controls.age.touched || anyError) && appointmentForm.controls.age.errors?.required">
+                            Please Enter Age
+                        </strong>
+                        <strong class="form-text text muted text-danger"
+                            *ngIf="(appointmentForm.controls.age.touched || anyError) && appointmentForm.controls.age.errors?.min">
+                            Age must be atleast 18.
+                        </strong>
+                        <strong class="form-text text muted text-danger"
+                            *ngIf="(appointmentForm.controls.age.touched || anyError) && appointmentForm.controls.age.errors?.max">
+                            Age must be atmost 60.
+                        </strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number*</label>
+                <input type="text" formControlName="phonenumber" class="form-control" placeholder="Enter Phone">
+                <strong class="form-text text muted text-danger"
+                    *ngIf="(appointmentForm.controls.phonenumber.touched || anyError) && appointmentForm.controls.phonenumber.errors?.required">
+                    Please Enter the Phone Number
+                </strong>
+                <strong class="form-text text muted text-danger"
+                    *ngIf="(appointmentForm.controls.phonenumber.touched || anyError) && appointmentForm.controls.phonenumber.errors?.min">
+                    Phone Number must be atleast 10 digits
+                </strong>
+                <strong class="form-text text muted text-danger"
+                    *ngIf="(appointmentForm.controls.phonenumber.touched || anyError) && appointmentForm.controls.phonenumber.errors?.max">
+                    Phone Number must be atleast 10 digits
+                </strong>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        <h6>Trainer preference</h6>
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" value="Male trainer" formControlName="trainerpreference"
+                                class="form-check-input m-1"> Male Trainer
+                        </label>
+                        <br>
+                        <label class="form-check-label">
+                            <input type="radio" value="Female trainer" formControlName="trainerpreference"
+                                class="form-check-input m-1"> Female Trainer
+                        </label>
+                        <br>
+                        <label class="form-check-label">
+                            <input type="radio" value="No Preference" formControlName="trainerpreference"
+                                class="form-check-input m-1"> No preference
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        <h6>Do you Need a physio therapy?</h6>
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check-inline">
+
+                        <label class="form-check-label">
+                            <input type="radio" formControlName="psysiotherapy" value="Yes" class="form-check-input m-3"
+                                checked> Yes
+                        </label>
+                        <label class="form-check-label">
+                            <input type="radio" formControlName="psysiotherapy" value="No" class="form-check-input m-3">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <label>
+                <h6>Choose a package</h6>
+            </label>
+            <div class="form-check">
+                <label class="form-check-label" for="otp1">
+                    <input type="radio" [(ngModel)]="amt" name="packages" (click)="hide_input()" value="500" formControlName="packages"
+                        id="otp1" class="form-check-input"> One time assesment only. (Rs
+                    500 only)
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="opt2">
+                    <input type="radio" [(ngModel)]="amt" name="packages" (click)="hide_input()" value="1600" formControlName="packages"
+                        id="opt2" class="form-check-input"> 4 sessions per week. (Rs 400
+                    per session only)
+                </label>
+
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="opt3">
+                    <input type="radio" [(ngModel)]="amt" name="packages" (click)="hide_input()" value="1500" formControlName="packages"
+                        id="opt3" class="form-check-input"> 5 sessions per week. (Rs 500
+                    per session only)
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label" for="opt4">
+                    <input type="radio" [(ngModel)]="amt" name="packages" (click)="show()" value="" formControlName="packages"
+                    id="opt4" class="form-check-input"> 
+
+                    Other :
+                   
+                    <input type="number" *ngIf="toggl" [(ngModel)]="amt" value="" formControlName="packages">
+                </label>
+            </div>
+
+            <div class="form-group mt-4">
+                <label>Amount Rs</label>
+                <input type="text" value="" [(ngModel)]="amt" formControlName="packages" disabled>
+
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block bg-secondary text-light">Register</button>
+            <button type="reset" class="btn btn-primary btn-lg btn-block bg-secondary text-light mt-3">Reset</button>
+        </form>
+    </div>
+</div>

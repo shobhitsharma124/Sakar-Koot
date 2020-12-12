@@ -1,0 +1,39 @@
+<div class="justify-content-center">
+    <h2 class="text-center">Appointments</h2>
+    <hr class="w-25" style="background-color: gray;">
+
+
+    <div class="">
+      <div class="form-group">
+        <strong><label for="exampleFormControlSelect1">Select Trainer preference to filter the Appointments</label></strong>
+        <select class="form-control" id="exampleFormControlSelect1" (change)="search_function($event.target.value)">
+          <option value="">-- Trainer Preference --</option>
+          <option value="Male trainer">Male Trainer</option>
+          <option value="Female trainer">Female Trainer</option>
+          <option value="No Preference">No Preference</option>
+        </select>
+      </div>
+        <table class="table table-responsive w-100 d-block d-md-table">
+            <thead>
+              <tr>
+                <th>Sr</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Trainer Ptrference</th>
+                <th>Package</th>
+                <th>Phone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of appointment_list;let indx = index">
+                <td>{{ indx + 1}}</td>
+                <td>{{ i.firstname + " " + i.lastname}}</td>
+                <td>{{ i.address }}</td>
+                <td>{{ i.trainerpreference }}</td>
+                <td>{{ i.packages }}</td>
+                <td>{{ i.phonenumber }}</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

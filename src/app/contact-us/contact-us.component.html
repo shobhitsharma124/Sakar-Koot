@@ -1,0 +1,51 @@
+<div class="justify-content-center">
+    <h2 class="text-center">Contact Us</h2>
+    <hr class="w-25" style="background-color: gray;">
+    <strong class="text-success ml-4">Fields marked * are mandatory to fill</strong>
+    <div class="m-4">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-group">
+                <label>First Name*</label>
+                <input type="text" class="form-control" formControlName="firstname" placeholder="Enter First Name" autofocus>
+                <strong class="form-text text muted text-danger"
+                    *ngIf="(contactForm.controls.firstname.touched||anyError) && contactForm.controls.firstname.errors?.required">
+                    Please Enter the First Name
+            </strong>
+
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" formControlName="lastname" placeholder="Enter Last Name">
+            </div>
+            <div class="form-group">
+                <label>Email address*</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter Email Address">
+                <strong id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</strong>
+                <strong class="form-text text muted text-danger"
+                    *ngIf="(contactForm.controls.email.touched||anyError) && contactForm.controls.email.errors?.email">
+                    Please Enter correct email format (abc@example.com)
+                </strong>
+                <strong class="form-text text muted text-danger"
+                *ngIf="(contactForm.controls.email.touched||anyError) && contactForm.controls.email.errors?.required">
+                Please Enter Email
+            </strong>
+            </div>
+            <div class="form-group">
+                <label>Phone Number*</label>
+                <input type="number" class="form-control" formControlName="phonenumber" placeholder="Enter Phone">
+                <strong class="form-text text muted text-danger"
+                    *ngIf="(contactForm.controls.phonenumber.touched||anyError) && contactForm.controls.phonenumber.errors?.required">
+                    Please Enter the phonenumber
+                </strong>
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control" formControlName="message" placeholder=""></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-large btn-block btn-secondary mb-4">Submit</button>
+            <button type="reset" class="btn btn-primary btn-large btn-block btn-secondary mb-4">Reset</button>
+
+        </form>
+    </div>
+</div>
